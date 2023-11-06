@@ -24,8 +24,8 @@ Second command line argument is the style to apply:
 local util = require("conform.util")
 require("conform").formatters.styler = {
   meta = {
-    url = "https://github.com/r-lib/styler/",
-    description = "R formatter.",
+    url = "https://github.com/devOpifex/r.nvim",
+    description = "R formatter and linter.",
   },
   command = util.find_executable({"usr/bin/"}, "R"),
   args = {"-s", "--vanilla", "-e", "r.nvim::format()", "--args", "$FILENAME", "grk"},
