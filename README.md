@@ -3,7 +3,7 @@
 
 # r.nvim
 
-Formatter and linter for R.
+Formatter for R.
 
 ## Installation
 
