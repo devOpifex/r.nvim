@@ -6,6 +6,11 @@
 \usage{
 format(file, style = c("grk", "tidy"))
 }
+\arguments{
+\item{file}{File to style.}
+
+\item{style}{Style to apply.}
+}
 \description{
 Formatter for conform.nvim
 }

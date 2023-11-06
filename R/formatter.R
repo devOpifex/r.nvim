@@ -2,33 +2,36 @@
 #'
 #' Formatter for conform.nvim
 #'
+#' @param file File to style.
+#' @param style Style to apply.
+#'
 #' @export
 format <- \(
-	file,
-	style = c("grk", "tidy")
+  file,
+  style = c("grk", "tidy")
 ){
-	args <- commandArgs(TRUE)
+  args <- commandArgs(TRUE)
 
-	style <- match.arg(style)
-	if (missing(file)) {
-		file <- args[1]
-	}
+  style <- match.arg(style)
+  if (missing(file)) {
+    file <- args[1]
+  }
 
-	if (length(args) > 1L) {
-		style <- args[2]
-	}
+  if (length(args) > 1L) {
+    style <- args[2]
+  }
 
-	ext <- tools::file_ext(file)
-	temp <- tempfile("styler", fileext = sprintf(".%s", ext))
-	writeLines(readLines(file), temp)
+  ext <- tools::file_ext(file)
+  temp <- tempfile("styler", fileext = sprintf(".%s", ext))
+  writeLines(readLines(file), temp)
 
-	options(styler.quiet = TRUE)
+  options(styler.quiet = TRUE)
 
-	if (style == "tidy") {
-		styler::style_file(temp)
-	} else {
-		grkstyle::grk_style_file(temp)
-	}
+  if (style == "tidy") {
+    styler::style_file(temp)
+  } else {
+    grkstyle::grk_style_file(temp)
+  }
 
-	cat(paste0(readLines(temp), collapse = "\n"))
+  cat(paste0(readLines(temp), collapse = "\n"))
 }
