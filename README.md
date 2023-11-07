@@ -20,7 +20,9 @@ Second command line argument is the style to apply:
 - `tidy`: [tidyverse](https://github.com/r-lib/styler)
 - `grk`: [grkstyle](https://github.com/gadenbuie/grkstyle)
 
-``` r
+Define the new formatter
+
+```lua
 local util = require("conform.util")
 require("conform").formatters.styler = {
   meta = {
@@ -32,3 +34,16 @@ require("conform").formatters.styler = {
 }
 ```
 
+Use it
+
+```lua
+local formatters = {
+  typescript = {"eslint_d", "prettier",  },
+  go = { "gofmt", },
+  r = { "styler", },
+}
+
+require("conform").setup({
+  formatters_by_ft = formatters,
+})
+```
