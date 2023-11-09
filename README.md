@@ -48,3 +48,6 @@ require("conform").setup({
   formatters_by_ft = formatters,
 })
 ```
+
+> {styler} is slow, increase the timeout.
+
