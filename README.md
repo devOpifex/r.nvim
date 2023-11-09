@@ -20,6 +20,16 @@ Second command line argument is the style to apply:
 - `tidy`: [tidyverse](https://github.com/r-lib/styler)
 - `grk`: [grkstyle](https://github.com/gadenbuie/grkstyle)
 
+These can be defined with the `.rnvim` config file like so:
+
+```
+style=tidy
+```
+
+If this file is fount at the root of your project it is used,
+otherwise it looks for the file in your home directory (`~/.rnvim`),
+if that is not found it takes the function argument default (`tidy`).
+
 Define the new formatter
 
 ```lua
