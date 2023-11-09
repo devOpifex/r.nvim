@@ -12,10 +12,9 @@ Formatter for R.
 remotes::install_github("devOpifex/r.nvim")
 ```
 
-## Formatter
+## Styles 
 
-With [conform.nvim](https://github.com/stevearc/conform.nvim).
-Second command line argument is the style to apply:
+Two styles available:
 
 - `tidy`: [tidyverse](https://github.com/r-lib/styler)
 - `grk`: [grkstyle](https://github.com/gadenbuie/grkstyle)
@@ -29,6 +28,15 @@ style=tidy
 If this file is fount at the root of your project it is used,
 otherwise it looks for the file in your home directory (`~/.rnvim`),
 if that is not found it takes the function argument default (`tidy`).
+
+## Setup
+
+You can setup for a project with `setup("tidy")` or `setup("grk")`.
+See the previous section to create a system-wide config.
+
+## Formatter
+
+To use with [conform.nvim](https://github.com/stevearc/conform.nvim).
 
 Define the new formatter
 

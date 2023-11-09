@@ -4,7 +4,7 @@
 \alias{format}
 \title{Formatter}
 \usage{
-format(file, style = c("grk", "tidy"))
+format(file, style = c("tidy", "grk"))
 }
 \arguments{
 \item{file}{File to style.}
