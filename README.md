@@ -38,21 +38,6 @@ See the previous section to create a system-wide config.
 
 To use with [conform.nvim](https://github.com/stevearc/conform.nvim).
 
-Define the new formatter
-
-```lua
-local util = require("conform.util")
-require("conform").formatters.styler = {
-  meta = {
-    url = "https://github.com/devOpifex/r.nvim",
-    description = "R formatter and linter.",
-  },
-  command = util.find_executable({"usr/bin/"}, "R"),
-  args = {"-s", "-e", "r.nvim::format()", "--args", "$FILENAME", "grk"},
-  stdin = false,
-}
-```
-
 Use it
 
 ```lua
@@ -67,5 +52,15 @@ require("conform").setup({
 })
 ```
 
-> {styler} is slow, increase the timeout.
+> {styler} is slow, increase the timeout of your format on save, e.g.:
+
+```lua
+require("conform").setup({
+  format_on_save = {
+    -- These options will be passed to conform.format()
+    timeout_ms = 2000,
+    lsp_fallback = true,
+  },
+})
+```
 
